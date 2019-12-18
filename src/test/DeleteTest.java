@@ -5,16 +5,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class InsertTest {
+public class DeleteTest {
 	public static void main(String[] args) {
-		Boolean result = insert("도", "우넛", "donut@gmail.com");
-		System.out.println(result);
-		
-		result = insert("또", "치", "ddochi@gmail.com");
+		Boolean result = delete(3L);
 		System.out.println(result);
 	}	
 	
-	public static Boolean insert(String firstName, String lastName, String email) {
+	public static Boolean delete(Long no) {
 		Boolean result = false;
 		Connection conn = null;
 		Statement stmt = null;
@@ -30,11 +27,8 @@ public class InsertTest {
 			stmt = conn.createStatement();			
 		
 			//4. SQL문 실행
-			String sql = 
-				" insert" + 
-				"   into emaillist" +
-				" values (null, '"+ firstName + "', '" + lastName + "', '" + email + "')"; 
-			
+			String sql = "delete from emaillist where no = " + no;
+					
 			int count = stmt.executeUpdate(sql);
 			result = (count == 1);
 			
