@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class UpdateTest {
 	public static void main(String[] args) {
-		Boolean result = update(4L, "도", "우넛", "donut@gmail.com");
+		Boolean result = update(9L, "둘", "리", "dooly@gmail.com");
 		System.out.println(result);
 	}	
 	
